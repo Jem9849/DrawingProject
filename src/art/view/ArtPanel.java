@@ -72,7 +72,30 @@ public class ArtPanel extends JPanel
 	
 	public void setupSliders()
 	{
+		Hashtable<Integer, JLabel> scaleLabels = new Hashtable<Integer, JLabel>();
+		Hashtable<Integer, JLabel> edgeLabels = new Hashtable<Integer, JLabel>();
 		
+		scaleLabels.put(MINIMUM_SCALE, new JLabel("<HTML> Small <BR> Shape </HTML>"));
+		scaleLabels.put((MAXIMUM_SCALE + MINIMUM_SCALE) / 2, new JLabel("<HTML> Medium <BR> Shape </HTML>"));
+		scaleLabels.put(MAXIMUM_SCALE, new JLabel("<HTML> Large <BR> Shape </HTML>"));
+		
+		edgeLabels.put(MINIMUM_EDGE, new JLabel("Edges: " + MINIMUM_EDGE));
+		edgeLabels.put(MAXIMUM_EDGE, new JLabel("Edges: " + MAXIMUM_EDGE));
+		
+		scaleSlider.setLabelTable(scaleLabels);
+		scaleSlider.setOrientation(JSlider.VERTICAL);
+		scaleSlider.setSnapToTicks(true);
+		scaleSlider.setMajorTickSpacing(10);
+		scaleSlider.setPaintTicks(true);
+		scaleSlider.setPaintLabels(true);
+		
+		edgeSlider.setLabelTable(edgeLabels);
+		edgeSlider.setOrientation(JSlider.VERTICAL);
+		edgeSlider.setSnapToTicks(true);
+		edgeSlider.setMajorTickSpacing(3);
+		edgeSlider.setMinorTickSpacing(1);
+		edgeSlider.setPaintTicks(true);
+		edgeSlider.setPaintLabels(true);
 	}
 	
 	public void setupPanel()
