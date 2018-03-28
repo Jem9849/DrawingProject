@@ -43,7 +43,52 @@ public class ArtPanel extends JPanel
 	
 	public ArtPanel(ArtController app)
 	{
+		super();
+		this.app = app;
+		appLayout = new SpringLayout();
+		
+		currentScale = MINIMUM_SCALE;
+		currentEdgeCount = MINIMUM_EDGE;
+		scaleSlider = new JSlider(MINIMUM_SCALE, MAXIMUM_SCALE);
+		edgeSlider = new JSlider(MINIMUM_EDGE, MAXIMUM_EDGE);
+		
+		canvas = new ShapeCanvas(app);
+		sliderPanel = new JPanel();
+		buttonPanel = new JPanel(new GridLayout(0, 1));
+		
+		triangleButton = new JButton ("Add triangle.");
+		rectangleButton = new JButton ("Add rectangle");
+		ellipseButton = new JButton ("Add ellipse");
+		polygonButton = new JButton ("Add Polygon");
+		clearButton = new JButton ("Clear image");
+		saveButton = new JButton ("Save image");
+		colorButton = new JButton ("Change color");
+		
+		setupSliders();
+		setupPanel();
+		setupLayout();
+		setupListeners();
+	}
+	
+	public void setupSliders()
+	{
 		
 	}
+	
+	public void setupPanel()
+	{
+		
+	}
+	
+	public void setupListeners()
+	{
+		
+	}
+	
+	public void setupLayout()
+	{
+		
+	}
+	
 	
 }
