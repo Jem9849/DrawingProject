@@ -100,7 +100,26 @@ public class ArtPanel extends JPanel
 	
 	public void setupPanel()
 	{
+		this.setLayout(appLayout);
+		this.setBackground(Color.BLUE);
+		this.setPreferredSize(new Dimension(1024, 768)); // Used for display in WindowBuildder
+		this.add(canvas);
 		
+		buttonPanel.setPreferredSize(new Dimension(200, 450));
+		buttonPanel.add(triangleButton);
+		buttonPanel.add(rectangleButton);
+		buttonPanel.add(ellipseButton);
+		buttonPanel.add(clearButton);
+		buttonPanel.add(polygonButton);
+		buttonPanel.add(saveButton);
+		buttonPanel.add(colorButton);
+		
+		sliderPanel.setPreferredSize(new Dimension(250, 450));
+		sliderPanel.add(scaleSlider);
+		sliderPanel.add(edgeSlider);
+		
+		this.add(buttonPanel);
+		this.add(sliderPanel);
 	}
 	
 	public void setupListeners()
