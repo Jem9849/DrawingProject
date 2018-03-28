@@ -25,7 +25,7 @@ public class ArtPanel extends JPanel
 	private ArtController app;
 	
 	private SpringLayout appLayout;
-	private ShapeCanvas canvas;
+	private DrawingCanvas canvas;
 	private JPanel buttonPanel;
 	private JPanel sliderPanel;
 	private JSlider scaleSlider;
@@ -52,7 +52,7 @@ public class ArtPanel extends JPanel
 		scaleSlider = new JSlider(MINIMUM_SCALE, MAXIMUM_SCALE);
 		edgeSlider = new JSlider(MINIMUM_EDGE, MAXIMUM_EDGE);
 		
-		canvas = new ShapeCanvas(app);
+		canvas = new DrawingCanvas(app);
 		sliderPanel = new JPanel();
 		buttonPanel = new JPanel(new GridLayout(0, 1));
 		
