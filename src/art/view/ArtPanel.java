@@ -187,7 +187,56 @@ public class ArtPanel extends JPanel
 	
 	public void setupListeners()
 	{
+		rectangleButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent click)
+					{
+						Rectangle rectangle = createRectangle();
+						canvas.addShape(rectangle);
+					}
+				});
 		
+		triangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Polygon triangle = createPolygon(3);
+				canvas.addShape(triangle);
+			}
+		});
+		
+		ellipseButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Ellipse2D ellipse = createEllipse();
+				canvas.addShape(ellipse);
+			}
+		});
+		
+		polygonButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Polygon polygon = createPolygon(currentEdgeCount);
+				canvas.addShape(polygon);
+			}
+		});
+		
+		clearButton.addActionListener(click -> canvas.clear());
+		
+		saveButton.addActionListener(click -> canvas.save());
+		
+		colorButton.addActionListener(click -> canvas.changeBackground());
+		
+		scaleSlider.addChangeListener(new ChangeListener()
+				{
+					@Override
+					public void stateChanged(ChangeEvent e)
+					{
+						currentScale = scaleSlider.getValue();
+					}
+				});
 	}
 	
 	public void setupLayout()
