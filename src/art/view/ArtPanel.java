@@ -88,6 +88,7 @@ public class ArtPanel extends JPanel
 		scaleSlider.setMajorTickSpacing(10);
 		scaleSlider.setPaintTicks(true);
 		scaleSlider.setPaintLabels(true);
+		scaleSlider.setValue(MINIMUM_SCALE);
 		
 		edgeSlider.setLabelTable(edgeLabels);
 		edgeSlider.setOrientation(JSlider.VERTICAL);
