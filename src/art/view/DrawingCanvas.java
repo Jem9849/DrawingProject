@@ -20,6 +20,8 @@ public class DrawingCanvas extends JPanel
 	private ArrayList<Ellipse2D> ellipseList;
 	private ArrayList<Rectangle> rectangleList;
 	private ArtController app;
+	private int previousX;
+	private int previousY;
 	
 	private BufferedImage canvasImage;
 	
@@ -27,6 +29,7 @@ public class DrawingCanvas extends JPanel
 	{
 		super();
 		this.app = app;
+		resetPoint();
 		triangleList = new ArrayList<Polygon>();
 		polygonList = new ArrayList<Polygon>();
 		ellipseList = new ArrayList<Ellipse2D>();
@@ -64,16 +67,33 @@ public class DrawingCanvas extends JPanel
 		updateImage();
 	}
 	
-	public void drawOnCanvas(int xPosition, int yPosition)
+	public void drawOnCanvas(int xPosition, int yPosition, int lineWidth)
 	{
 		Graphics2D current = canvasImage.createGraphics();
 		current.setPaint(Color.DARK_GRAY);
-		current.setStroke(new BasicStroke(3));
+		current.setStroke(new BasicStroke(lineWidth));
 		
-		current.drawLine(xPosition, yPosition, xPosition, yPosition);
+		if (previousX == Integer.MIN_VALUE)
+		{
+			current.drawLine(xPosition, yPosition, xPosition, yPosition);
+		}
+		
+		else
+		{
+			current.drawLine(previousX, previousY, xPosition, yPosition);
+		}
+		previousX = xPosition;
+		previousY = yPosition;
 		
 		updateImage();
 	}
+	
+	public void resetPoint()
+	{
+		previousX = Integer.MIN_VALUE;
+		previousY = Integer.MIN_VALUE;
+	}
+	
 	public void clear()
 	{
 		
