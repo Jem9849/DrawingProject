@@ -63,6 +63,17 @@ public class DrawingCanvas extends JPanel
 	
 		updateImage();
 	}
+	
+	public void drawOnCanvas(int xPosition, int yPosition)
+	{
+		Graphics2D current = canvasImage.createGraphics();
+		current.setPaint(Color.DARK_GRAY);
+		current.setStroke(new BasicStroke(3));
+		
+		current.drawLine(xPosition, yPosition, xPosition, yPosition);
+		
+		updateImage();
+	}
 	public void clear()
 	{
 		
