@@ -129,7 +129,12 @@ public class DrawingCanvas extends JPanel
 	
 	private Color randomColor()
 	{
-		return null;
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
+		int alpha = (int) (Math.random() * 256);
+		
+		return new Color(red, green, blue, alpha);
 	}
 	
 	private void updateImage()
