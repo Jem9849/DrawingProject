@@ -96,7 +96,12 @@ public class DrawingCanvas extends JPanel
 	
 	public void clear()
 	{
-		
+		canvasImage = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
+		ellipseList.clear();
+		triangleList.clear();
+		polygonList.clear();
+		rectangleList.clear();
+		updateImage();
 	}
 	
 	public void changeBackground()
