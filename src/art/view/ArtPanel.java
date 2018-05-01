@@ -53,9 +53,10 @@ public class ArtPanel extends JPanel
 		edgeSlider = new JSlider(MINIMUM_EDGE, MAXIMUM_EDGE);
 		
 		canvas = new DrawingCanvas(app);
-		sliderPanel = new JPanel();
-		buttonPanel = new JPanel(new GridLayout(0, 1));
 		
+		sliderPanel = new JPanel();
+		
+		buttonPanel = new JPanel(new GridLayout(0, 1));
 		triangleButton = new JButton ("Add triangle.");
 		rectangleButton = new JButton ("Add rectangle");
 		ellipseButton = new JButton ("Add ellipse");
@@ -292,7 +293,10 @@ public class ArtPanel extends JPanel
 	
 	public void setupLayout()
 	{
-		
+		appLayout.putConstraint(SpringLayout.NORTH, canvas, 50, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, canvas, 50, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, sliderPanel, 20, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 40, SpringLayout.WEST, this);
 	}
 	
 	
