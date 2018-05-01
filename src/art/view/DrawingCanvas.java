@@ -114,7 +114,17 @@ public class DrawingCanvas extends JPanel
 	
 	public void save()
 	{
-		
+		try
+		{
+			JFileChooser saveDialog = new JFileChooser();
+			saveDialog.showSaveDialog(app.getFrame());
+			String savePath = saveDialog.getSelectedFile().getPath();
+			ImageIO.write(canvasImage, "PNG", new File(savePath));	
+		}
+		catch (IOException error)
+		{
+			app.handleErrors(error);
+		}
 	}
 	
 	private Color randomColor()
