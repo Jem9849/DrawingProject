@@ -1,30 +1,29 @@
 package art.controller;
 
-import java.io.IOException;
-
+import javax.swing.JOptionPane;
 import art.view.ArtFrame;
 
 public class ArtController 
 {
-	private ArtFrame frame;
+	private ArtFrame appFrame;
 	
 	public ArtController()
 	{
-		
+		appFrame = new ArtFrame(this);
 	}
 	
 	void start()
 	{
-		
+		JOptionPane.showMessageDialog(appFrame, "Welcome to art!");
 	}
 	
 	public ArtFrame getFrame()
 	{
-		return frame;
+		return appFrame;
 	}
 	
-	public void handleErrors(IOException error)
+	public void handleErrors(Exception error)
 	{
-		System.out.println(error);
+		JOptionPane.showMessageDialog(appFrame, error.getMessage());
 	}
 }
